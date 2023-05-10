@@ -1,8 +1,10 @@
 pluginManagement {
+    includeBuild("foody-build-logic")
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +12,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+    }
+    versionCatalogs {
+        create("foody") {
+            from(files("gradle/foody.versions.toml"))
+        }
     }
 }
 rootProject.name = "Foody"
